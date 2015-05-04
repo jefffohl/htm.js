@@ -2,18 +2,26 @@
   "name": "htm",
   "description": "Hierarchical Temporal Memory in Javascript",
   "author": {
-  		"name": "Jeff Fohl",
-  		"email": "jeff@fohl.com"
-  	},
+    "name": "Jeff Fohl",
+    "email": "jeff@fohl.com"
+  },
   "version": "0.1.0",
   "homepage": "https://github.com/jefffohl/htm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jefffohl/htm.js"
+  },
   "license": "GPL-3.0",
   "engines": {
     "node": "~0.12.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "colors" : "~1.1.0"
+    "colors": "~1.1.0",
+    "gulp": "^3.8.11",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jshint": "^1.10.0",
+    "jasmine": "~2.3.0",
+    "jshint-stylish": "^1.0.2"
   }
 }

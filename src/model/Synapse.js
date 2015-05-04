@@ -1,8 +1,8 @@
 // private
 var synapse = {
+	permanence : null,
 	sourceInput : null
 };
-
 
 // public
 var Synapse = {

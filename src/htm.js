@@ -1,16 +1,25 @@
 /**
- * @author jefffohl / http://fohl.com/
+ * @author Jeff Fohl / http://fohl.com/
+ *
  */
 
 // Utilities
-var util				= require('util');
-var debug				= require('./util/debug.js');
+var util = require('util');
+var debug = require('./util/debug.js');
 
 // Model
-var Region	= require('./model/Region.js');
+var Region = require('./model/Region.js');
+
+/*
 
 // Tests
-var myRegion = Region.create();
+var myParameters = {
+	"columnCount" : {
+		value : 4096 
+	}
+};
 
-debug.logPrototype(myRegion);
+var myRegion = Region.create(myParameters);
+
+*/
 

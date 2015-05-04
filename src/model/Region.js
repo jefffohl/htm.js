@@ -1,8 +1,15 @@
-// dependencies
-var Column = require("./Column.js");
-
 // private
 var region = {
+
+	/**
+	* Number of columns in this region
+	*/
+	columnCount : 2048,
+
+	/**
+	* Number of cells per column
+	*/
+	cellCount : 10,
 
 	/**
 	* List of all columns
@@ -24,14 +31,6 @@ var region = {
 	inhibition step.
 	*/
 	minOverlap : 10,
-
-	/**
-	* A data structure representing a synapse|contains a permanence value and the source input index.
-	*/
-	synapse : {
-		permanence : null,
-		sourceIndex : null
-	},
 
 	/**
 	* If the permanence value for a synapse is greater than this value, it is said to be connected.
@@ -187,7 +186,7 @@ var region = {
 	calculateOverlap : function(time) {
 		for (var c = 0; c < columns.length; c++) {
 			columns[c].overlap = 0;
-			var synapes = connectedSynapses(columns[c]);
+			var synapses = connectedSynapses(columns[c]);
 		 	for (var s = 0; s <  synapses.length; s++) {
 		 		columns[c].overlap = columns[c].overlap + input(time, synapses[s].sourceInput);
 		 	}
