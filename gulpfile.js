@@ -18,4 +18,6 @@ gulp.task('test', function () {
         .pipe(jasmine());
 });
 
+gulp.task('default', ['lint','test']);
+
 
