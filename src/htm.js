@@ -21,9 +21,11 @@ var myParameters = {
 
 var myRegion = Region.create(myParameters);
 
-Stream.init(100,101);
+Stream.init(10,10);
 
-Stream.stream.pipe(process.stdout);
+Stream.stream.on('data', function(chunk){
+	console.log(JSON.parse(chunk));
+});
 
 
 

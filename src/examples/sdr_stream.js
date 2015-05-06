@@ -8,8 +8,6 @@ var Stream = {
 
 	stream : null,
 
-	length : 0,
-
 	offset : 0,
 
 	wrap : 0,
