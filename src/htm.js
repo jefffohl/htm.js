@@ -6,7 +6,7 @@
 // Utilities
 var util = require('util');
 var debug = require('./util/debug.js');
-var stream = require('./examples/sdr_stream.js');
+var Stream = require('./examples/sdr_stream.js');
 
 // Model
 var Region = require('./model/Region.js');
@@ -21,7 +21,9 @@ var myParameters = {
 
 var myRegion = Region.create(myParameters);
 
-var myStream = stream.start(5,10);
+Stream.init(100,101);
+
+Stream.stream.pipe(process.stdout);
 
 
 
