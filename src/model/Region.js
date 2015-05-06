@@ -48,11 +48,24 @@ var region = {
 	permanenceDec : 1,
 
 	/**
-	* The input to this level at time t.
+	* The current SDR being processed
 	*/
-	input : function( t, j ) {
+
+	currentSDR : null,
+
+	/**
+	* Initializes the region by computing a list of initial potential synapses for each column.
+	*/
+	init : function() {
 		return;
 	},
+
+	/**
+	* The input to this level at time t.
+	*/
+	//input : function( t, j ) {
+	//	return;
+	//},
 
 	/**
 	* The pattern memory overlap of column c with a particular input pattern.
@@ -84,7 +97,7 @@ var region = {
 	},
 
 	/**
-	* The list of potential synapses and their permanence values.
+	* The list of potential synapses and their permanence values, for the column c.
 	*/
 	potentialSynapses : function( c ) {
 		return;
@@ -183,17 +196,17 @@ var region = {
 	/**
 	* Calculates the overlap value for all columns
 	*/
-	calculateOverlap : function(time) {
-		for (var c = 0; c < columns.length; c++) {
-			columns[c].overlap = 0;
-			var synapses = connectedSynapses(columns[c]);
+	calculateOverlap : function(sdr) {
+		for (var c = 0; c < this.columns.length; c++) {
+			this.columns[c].overlap = 0;
+			var synapses = this.connectedSynapses(this.columns[c]);
 		 	for (var s = 0; s <  synapses.length; s++) {
-		 		columns[c].overlap = columns[c].overlap + input(time, synapses[s].sourceInput);
+		 		this.columns[c].overlap = this.columns[c].overlap + sdr[synapses[s].sourceInput];
 		 	}
-		 	if (columns[c].overlap < minOverlap) {
-		 		columns[c].overlap = 0;
+		 	if (this.columns[c].overlap < this.minOverlap) {
+		 		this.columns[c].overlap = 0;
 		 	} else {
-		 		columns[c].overlap = columns[c].overlap * columns[c].boost;
+		 		this.columns[c].overlap = this.columns[c].overlap * this.columns[c].boost;
 		 	}
 		}
 	}
@@ -204,7 +217,9 @@ var region = {
 */
 var Region = {
 	create : function(parameters) {
-		return Object.create(region, parameters);
+		var newRegion = Object.create(region,parameters);
+		newRegion.init();
+		return newRegion;
 	}
 };
 

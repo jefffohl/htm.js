@@ -10,7 +10,7 @@ describe('Region', function() {
         	var myRegion = region.create();
             expect(myRegion.columnCount).toEqual(2048);
         });
-        it('should have a columnCount of 4096', function() {
+        it('should allow us to set the columnCount', function() {
             var myRegion = region.create({
                 "columnCount" : {
                     value : 4096
