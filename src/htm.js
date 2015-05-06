@@ -15,13 +15,13 @@ var Region = require('./model/Region.js');
 // Tests
 var myParameters = {
 	"columnCount" : {
-		value : 4096 
+		value : 2048 
 	}
 };
 
 var myRegion = Region.create(myParameters);
 
-var myStream = stream.make(100,4096);
+var myStream = stream.start(5,10);
 
 
 
